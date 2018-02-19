@@ -9,4 +9,7 @@ module.exports = {
   },
   extends: 'airbnb-base',
   plugins: ['html'],
+  rules: {
+    'no-param-reassign': [2, { props: false }],
+  },
 };
