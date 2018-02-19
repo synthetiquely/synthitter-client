@@ -23,7 +23,7 @@ export default {
 
 <style>
 body {
-  height: 100vw;
+  height: 100vh;
   margin: 0;
   padding: 0;
   font-family: 'Raleway', sans-serif;
@@ -41,7 +41,7 @@ body {
 
 .app__container {
   grid-area: c;
-  height: 100%;
+  height: calc(100vh - 120px);
   padding: 0 20%;
   background-color: #383843;
   color: #f7f5f5;

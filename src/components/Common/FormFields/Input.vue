@@ -53,4 +53,7 @@ export default {
   background-color: #a1a0a0;
   color: #f7f5f5;
 }
+.form__field__input:focus {
+  color: #fff;
+}
 </style>
