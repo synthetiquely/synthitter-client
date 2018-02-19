@@ -46,16 +46,4 @@ body {
   background-color: #383843;
   color: #f7f5f5;
 }
-
-.app__header {
-  grid-area: h;
-}
-
-.app__footer {
-  grid-area: f;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #a1a0a0;
-}
 </style>

@@ -19,6 +19,14 @@ a:hover {
   color: #e4e1dd;
 }
 
+.app__footer {
+  grid-area: f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #a1a0a0;
+}
+
 .footer__menu {
   list-style: none;
   margin: 0;

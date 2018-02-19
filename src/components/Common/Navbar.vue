@@ -28,6 +28,10 @@ a:hover {
   color: #7b8590;
 }
 
+.app__header {
+  grid-area: h;
+}
+
 .active {
   color: #413e58;
   text-decoration-line: underline;
