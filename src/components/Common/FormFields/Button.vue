@@ -36,10 +36,11 @@ export default {
 
 <style scoped>
 .button {
-  font-family: 'Raleway', sans-serif;
+  min-width: 150px;
   padding: 20px;
   border-radius: 50px;
   border: none;
+  font-family: 'Raleway', sans-serif;
   font-weight: 700;
   cursor: pointer;
 }

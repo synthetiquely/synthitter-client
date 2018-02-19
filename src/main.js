@@ -3,6 +3,7 @@ import App from './App.vue';
 import router from './router';
 
 import Button from './components/Common/FormFields/Button.vue';
+import Input from './components/Common/FormFields/Input.vue';
 
 /* eslint-disable no-new */
 new Vue({
@@ -12,3 +13,4 @@ new Vue({
 });
 
 Vue.component('Button', Button);
+Vue.component('TextInput', Input);
