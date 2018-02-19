@@ -47,6 +47,10 @@ export default {
 
 .form__field__input {
   font-family: 'Raleway', sans-serif;
-  padding: 5px 0;
+  padding: 10px 5px;
+  border-radius: 5px;
+  border: none;
+  background-color: #a1a0a0;
+  color: #f7f5f5;
 }
 </style>

@@ -47,20 +47,22 @@ export default {
 
 .button.primary {
   background-color: #4caca4;
-  color: #fff;
+  color: #e4e1dd;
 }
 
 .button.primary:hover {
   background: linear-gradient(to right, #93dfd8, #b2dfdb);
+  color: #7b8590;
 }
 
 .button.success {
   background-color: #4caf50;
-  color: #fff;
+  color: #e4e1dd;
 }
 
 .button.success:hover {
   background: linear-gradient(to right, #8ae98d, #c8e6c9);
+  color: #7b8590;
 }
 
 .button.default {
