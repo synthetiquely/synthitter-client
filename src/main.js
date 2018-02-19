@@ -6,7 +6,9 @@ import apollo from './apollo';
 
 import Button from './components/Common/FormFields/Button.vue';
 import Input from './components/Common/FormFields/Input.vue';
+import Alert from './components/Common/Alert.vue';
 
+Vue.component('Alert', Alert);
 Vue.component('Button', Button);
 Vue.component('TextInput', Input);
 

@@ -2,6 +2,7 @@
   <div id="app" class="app">
     <app-navbar></app-navbar>
     <main class="app__container">
+      <Alert v-if="error" type="error" :text="error" />
       <router-view></router-view>
     </main>
     <app-footer></app-footer>
@@ -13,11 +14,16 @@ import Navbar from './components/Common/Navbar.vue';
 import Footer from './components/Common/Footer.vue';
 
 export default {
+  name: 'app',
   components: {
     'app-navbar': Navbar,
     'app-footer': Footer,
   },
-  name: 'app',
+  computed: {
+    error() {
+      return this.$store.getters.error;
+    },
+  },
 };
 </script>
 
