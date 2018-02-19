@@ -1,0 +1,68 @@
+<template>
+  <button @click="action" class="button" :class="classes" :type="type">{{ text }}</button>
+</template>
+
+<script>
+export default {
+  props: {
+    role: {
+      type: String,
+      default: 'default',
+    },
+    type: {
+      type: String,
+      default: 'button',
+    },
+    text: {
+      type: String,
+      default: 'button',
+    },
+    action: {
+      type: Function,
+      default: () => {},
+    },
+  },
+  computed: {
+    classes() {
+      return {
+        [this.role]: true,
+        active: this.isActive,
+        loading: this.isLoading,
+      };
+    },
+  },
+};
+</script>
+
+<style scoped>
+.button {
+  font-family: 'Raleway', sans-serif;
+  padding: 20px;
+  border-radius: 50px;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.button.primary {
+  background-color: #4caca4;
+  color: #fff;
+}
+
+.button.primary:hover {
+  background: linear-gradient(to right, #93dfd8, #b2dfdb);
+}
+
+.button.success {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.button.success:hover {
+  background: linear-gradient(to right, #8ae98d, #c8e6c9);
+}
+
+.button.default {
+  background-color: #e4e1dd;
+}
+</style>
