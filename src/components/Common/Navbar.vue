@@ -2,17 +2,11 @@
   <header class="app__header">
     <nav class="navbar">
       <ul class="navbar__menu">
-        <li class="navbar__menu__item navbar__menu__item_logo">
-          <router-link exact-active-class="active" active-class="active" exact to="/">Synthitter</router-link>
-        </li>
-        <li class="navbar__menu__item">
-          <router-link exact-active-class="active" active-class="active" exact to="/">Home</router-link>
-        </li>
+        <router-link class="navbar__menu__item navbar__menu__item_logo" exact-active-class="active" active-class="active" exact to="/">Synthitter</router-link>
+        <router-link class="navbar__menu__item" exact-active-class="active" active-class="active" exact to="/">Home</router-link>
       </ul>
       <ul class="navbar__menu navbar__menu_right">
-        <li class="navbar__menu__item">
-          <router-link exact-active-class="active" to="/user/signup">Sign up</router-link>
-        </li>
+        <router-link class="navbar__menu__item" exact-active-class="active" to="/user/signup">Sign up</router-link>
       </ul>
     </nav>
   </header>
