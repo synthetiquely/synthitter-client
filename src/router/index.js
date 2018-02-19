@@ -18,4 +18,5 @@ export default new VueRouter({
       component: Signup,
     },
   ],
+  mode: 'history',
 });
