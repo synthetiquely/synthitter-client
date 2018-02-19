@@ -8,7 +8,7 @@ const httpLink = new HttpLink({
   uri: 'http://localhost:8080/graphql',
 });
 
-const apolloClient = new ApolloClient({
+export const apolloClient = new ApolloClient({
   link: httpLink,
   cache: new InMemoryCache(),
   connectToDevTools: true,

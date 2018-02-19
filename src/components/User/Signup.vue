@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="submit" class="signup-form form" novalidate>
+  <form @submit.prevent="onSubmit" class="signup-form form" novalidate>
     <TextInput type="text" name="fullName" label="Full Name" :value="fullName" @input="onInput" placeholder="Enter your name" />
     <TextInput type="text" name="username" label="Username" :value="username" @input="onInput" placeholder="Enter your username" />
     <TextInput type="email" name="email" label="Email" :value="email" @input="onInput" placeholder="Enter your email" />
@@ -18,14 +18,22 @@ export default {
       password: '',
       fullName: '',
       username: '',
+      avatar:
+        'https://blog.za3k.com/wp-content/uploads/2015/03/default_profile_3.png',
     };
   },
   methods: {
     onInput({ name, value }) {
       this[name] = value;
     },
-    submit() {
-      console.log(`${this.email}`);
+    onSubmit() {
+      this.$store.dispatch('signup', {
+        email: this.email,
+        username: this.username,
+        password: this.password,
+        fullName: this.fullName,
+        avatar: this.avatar,
+      });
     },
   },
 };
