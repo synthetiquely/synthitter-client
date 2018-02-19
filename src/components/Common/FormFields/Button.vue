@@ -1,5 +1,8 @@
 <template>
-  <button @click="action" class="button" :class="classes" :type="type">{{ text }}</button>
+  <button @click="action" class="button" :class="classes" :type="type">
+    <i v-show="loading" class="fas fa-spinner" :class="{ 'loading': loading }"></i>
+    {{ text }}
+  </button>
 </template>
 
 <script>
@@ -17,6 +20,9 @@ export default {
       type: String,
       default: 'button',
     },
+    loading: {
+      type: Boolean,
+    },
     action: {
       type: Function,
       default: () => {},
@@ -26,8 +32,6 @@ export default {
     classes() {
       return {
         [this.role]: true,
-        active: this.isActive,
-        loading: this.isLoading,
       };
     },
   },
@@ -67,5 +71,16 @@ export default {
 
 .button.default {
   background-color: #e4e1dd;
+}
+
+.loading {
+  margin-right: 10px;
+  animation: spinner 0.6s linear infinite;
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
 }
 </style>

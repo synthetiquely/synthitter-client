@@ -5,7 +5,7 @@
     <TextInput type="email" name="email" label="Email" :value="email" @input="onInput" placeholder="Enter your email" />
     <TextInput type="password" name="password" label="Password" :value="password" @input="onInput" placeholder="Enter your password" />
     <div class="form__field">
-      <Button type="submit" role="primary" text="Sign up" />
+      <Button type="submit" role="primary" text="Sign up" :loading="isLoading" />
     </div>
   </form>
 </template>
@@ -21,6 +21,11 @@ export default {
       avatar:
         'https://blog.za3k.com/wp-content/uploads/2015/03/default_profile_3.png',
     };
+  },
+  computed: {
+    isLoading() {
+      return this.$store.getters.loading;
+    },
   },
   methods: {
     onInput({ name, value }) {
