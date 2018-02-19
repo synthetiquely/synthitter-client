@@ -1,7 +1,7 @@
 <template>
   <div class="form__field">
     <label :for="name" class="form__field__label">{{ label }}</label>
-    <input :type="type" :name="name" :id="name" :v-model="name" :placeholder="placeholder" class="form__field__input">
+    <input :type="type" :name="name" :id="name" :value="value" @input="changeValue($event.target.value)" :placeholder="placeholder" class="form__field__input">
   </div>
 </template>
 
@@ -12,6 +12,10 @@ export default {
     type: {
       type: String,
       default: 'text',
+    },
+    value: {
+      type: String,
+      required: true,
     },
     label: {
       type: String,
@@ -24,6 +28,11 @@ export default {
     placeholder: {
       type: String,
       required: true,
+    },
+  },
+  methods: {
+    changeValue(value) {
+      this.$emit('input', { value, name: this.name });
     },
   },
 };
