@@ -53,7 +53,9 @@ body {
 
 .app__footer {
   grid-area: f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #a1a0a0;
-  color: #7b8590;
 }
 </style>
