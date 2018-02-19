@@ -1,9 +1,9 @@
 <template>
   <form @submit.prevent="onSubmit" class="signup-form form" novalidate>
-    <TextInput type="text" name="fullName" label="Full Name" :value="fullName" @input="onInput" placeholder="Enter your name" />
-    <TextInput type="text" name="username" label="Username" :value="username" @input="onInput" placeholder="Enter your username" />
-    <TextInput type="email" name="email" label="Email" :value="email" @input="onInput" placeholder="Enter your email" />
-    <TextInput type="password" name="password" label="Password" :value="password" @input="onInput" placeholder="Enter your password" />
+    <TextInput type="text" name="fullName" label="Full Name" :value="fullName" @input="onInput" placeholder="Enter your name" :error="errors.fullName" />
+    <TextInput type="text" name="username" label="Username" :value="username" @input="onInput" placeholder="Enter your username" :error="errors.username" />
+    <TextInput type="email" name="email" label="Email" :value="email" @input="onInput" placeholder="Enter your email" :error="errors.email" />
+    <TextInput type="password" name="password" label="Password" :value="password" @input="onInput" placeholder="Enter your password" :error="errors.password" />
     <div class="form__field">
       <Button type="submit" role="primary" text="Sign up" :loading="isLoading" />
     </div>
@@ -11,6 +11,8 @@
 </template>
 
 <script>
+import validate from '../../utils/validate';
+
 export default {
   data() {
     return {
@@ -20,6 +22,7 @@ export default {
       username: '',
       avatar:
         'https://blog.za3k.com/wp-content/uploads/2015/03/default_profile_3.png',
+      errors: {},
     };
   },
   computed: {
@@ -32,13 +35,21 @@ export default {
       this[name] = value;
     },
     onSubmit() {
-      this.$store.dispatch('signup', {
+      this.errors = validate({
         email: this.email,
         username: this.username,
         password: this.password,
         fullName: this.fullName,
-        avatar: this.avatar,
       });
+      if (Object.keys(this.errors).length === 0) {
+        this.$store.dispatch('signup', {
+          email: this.email,
+          username: this.username,
+          password: this.password,
+          fullName: this.fullName,
+          avatar: this.avatar,
+        });
+      }
     },
   },
 };

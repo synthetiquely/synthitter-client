@@ -1,11 +1,14 @@
 <template>
-  <div class="form__field">
+  <div class="form__field" :class="{'has-error': error}">
     <label :for="name" class="form__field__label">{{ label }}</label>
     <input :type="type" :name="name" :id="name" :value="value" @input="changeValue($event.target.value)" :placeholder="placeholder" class="form__field__input">
+    <inline-error v-if="error" :text="error" />
   </div>
 </template>
 
 <script>
+import InlineError from './InlineError.vue';
+
 export default {
   name: 'TextInput',
   props: {
@@ -29,11 +32,17 @@ export default {
       type: String,
       required: true,
     },
+    error: {
+      type: String,
+    },
   },
   methods: {
     changeValue(value) {
       this.$emit('input', { value, name: this.name });
     },
+  },
+  components: {
+    'inline-error': InlineError,
   },
 };
 </script>
@@ -55,5 +64,9 @@ export default {
 }
 .form__field__input:focus {
   color: #fff;
+}
+
+.has-error {
+  color: #e57373;
 }
 </style>
