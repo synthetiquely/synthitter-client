@@ -10,6 +10,11 @@ export default new VueRouter({
   routes: [
     {
       path: '/',
+      name: 'Main',
+      component: Home,
+    },
+    {
+      path: '/home',
       name: 'Home',
       component: Home,
     },
