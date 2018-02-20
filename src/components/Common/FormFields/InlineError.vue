@@ -4,6 +4,7 @@
 
 <script>
 export default {
+  name: 'InlineError',
   props: {
     text: {
       type: String,

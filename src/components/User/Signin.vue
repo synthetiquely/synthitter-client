@@ -1,27 +1,21 @@
 <template>
-  <form @submit.prevent="onSubmit" class="signup-form form" novalidate>
-    <TextInput type="text" name="fullName" label="Full Name" :value="fullName" @input="onInput" placeholder="Enter your name" :error="errors.fullName" />
-    <TextInput type="text" name="username" label="Username" :value="username" @input="onInput" placeholder="Enter your username" :error="errors.username" />
+  <form @submit.prevent="onSubmit" class="signin-form form" novalidate>
     <TextInput type="email" name="email" label="Email" :value="email" @input="onInput" placeholder="Enter your email" :error="errors.email" />
     <TextInput type="password" name="password" label="Password" :value="password" @input="onInput" placeholder="Enter your password" :error="errors.password" />
     <div class="form__field">
-      <Button type="submit" role="primary" text="Sign up" :loading="isLoading" />
+      <Button type="submit" role="primary" text="Sign in" :loading="isLoading" />
     </div>
   </form>
 </template>
 
 <script>
-import { validateSignup } from '../../utils/validate';
+import { validateSignin } from '../../utils/validate';
 
 export default {
   data() {
     return {
       email: '',
       password: '',
-      fullName: '',
-      username: '',
-      avatar:
-        'https://blog.za3k.com/wp-content/uploads/2015/03/default_profile_3.png',
       errors: {},
     };
   },
@@ -29,26 +23,31 @@ export default {
     isLoading() {
       return this.$store.getters.loading;
     },
+    user() {
+      return this.$store.getters.user;
+    },
   },
   methods: {
     onInput({ name, value }) {
       this[name] = value;
     },
     onSubmit() {
-      this.errors = validateSignup({
+      this.errors = validateSignin({
         email: this.email,
-        username: this.username,
         password: this.password,
-        fullName: this.fullName,
       });
       if (Object.keys(this.errors).length === 0) {
-        this.$store.dispatch('signup', {
+        this.$store.dispatch('signin', {
           email: this.email,
-          username: this.username,
           password: this.password,
-          fullName: this.fullName,
-          avatar: this.avatar,
         });
+      }
+    },
+  },
+  watch: {
+    user(value) {
+      if (value !== null && value !== undefined) {
+        this.$router.push('/home');
       }
     },
   },

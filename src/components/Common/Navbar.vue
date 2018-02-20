@@ -7,6 +7,7 @@
       </ul>
       <ul class="navbar__menu navbar__menu_right">
         <router-link class="navbar__menu__item" exact-active-class="active" to="/user/signup">Sign up</router-link>
+        <router-link class="navbar__menu__item" exact-active-class="active" to="/user/signin">Sign in</router-link>
       </ul>
     </nav>
   </header>

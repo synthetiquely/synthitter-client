@@ -38,4 +38,26 @@ export default {
       },
     });
   },
+  signin({ email, password }) {
+    return apolloClient.mutate({
+      mutation: gql`
+        mutation Signin($email: String!, $password: String!) {
+          signin(email: $email, password: $password) {
+            user {
+              username
+              email
+              firstName
+              lastName
+              avatar
+            }
+            token
+          }
+        }
+      `,
+      variables: {
+        email,
+        password,
+      },
+    });
+  },
 };
