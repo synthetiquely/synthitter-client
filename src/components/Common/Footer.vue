@@ -24,7 +24,7 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #a1a0a0;
+  background-color: #f3fcfe;
 }
 
 .footer__menu {

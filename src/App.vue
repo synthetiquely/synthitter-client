@@ -28,17 +28,22 @@ export default {
 </script>
 
 <style>
+html {
+  height: 100%;
+}
+
 body {
-  height: 100vh;
+  height: 100%;
   margin: 0;
   padding: 0;
   font-family: 'Raleway', sans-serif;
 }
 
 .app {
+  height: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 60px auto 60px;
+  grid-template-rows: 60px 1fr 60px;
   grid-template-areas:
     'h h h'
     'c c c'
@@ -47,8 +52,10 @@ body {
 
 .app__container {
   grid-area: c;
-  height: calc(100vh - 120px);
-  padding: 0 20%;
+  height: 100%;
+  display: flex;
+  margin-bottom: 10px;
+  padding: 0 10%;
   background-color: #383843;
   color: #f7f5f5;
 }
