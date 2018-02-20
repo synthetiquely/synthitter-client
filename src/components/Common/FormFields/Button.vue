@@ -71,7 +71,9 @@ export default {
 }
 
 .button.default {
-  background-color: #e4e1dd;
+  background-color: #fff;
+  color: #7b8590;
+  border: 1px solid #4caca4;
 }
 
 .loading {
