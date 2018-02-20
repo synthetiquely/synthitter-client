@@ -53,7 +53,6 @@ body {
 .app__container {
   grid-area: c;
   height: 100%;
-  display: flex;
   margin-bottom: 10px;
   padding: 0 10%;
   background-color: #383843;

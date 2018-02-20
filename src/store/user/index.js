@@ -40,5 +40,8 @@ export default {
         commit('setError', error.message);
       }
     },
+    signout({ commit }) {
+      commit('setUser', null);
+    },
   },
 };

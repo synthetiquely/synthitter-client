@@ -5,13 +5,32 @@
         <router-link class="navbar__menu__item navbar__menu__item_logo" exact-active-class="active" active-class="active" exact to="/">Synthitter</router-link>
         <router-link class="navbar__menu__item" exact-active-class="active" active-class="active" exact to="/">Home</router-link>
       </ul>
-      <ul class="navbar__menu navbar__menu_right">
+      <ul v-if="!isAuthenticated" class="navbar__menu navbar__menu_right">
         <router-link class="navbar__menu__item" exact-active-class="active" to="/user/signup">Sign up</router-link>
         <router-link class="navbar__menu__item" exact-active-class="active" to="/user/signin">Sign in</router-link>
+      </ul>
+      <ul v-else class="navbar__menu navbar__menu_right">
+        <span @click="onSignout" class="navbar__menu__item">Sign out</span>
       </ul>
     </nav>
   </header>
 </template>
+
+<script>
+export default {
+  computed: {
+    isAuthenticated() {
+      return !!this.$store.getters.user;
+    },
+  },
+  methods: {
+    onSignout() {
+      this.$store.dispatch('signout');
+    },
+  },
+};
+</script>
+
 
 <style scoped>
 a {

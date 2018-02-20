@@ -16,7 +16,7 @@ a {
 }
 
 a:hover {
-  color: #e4e1dd;
+  color: #a1a0a0;
 }
 
 .app__footer {
