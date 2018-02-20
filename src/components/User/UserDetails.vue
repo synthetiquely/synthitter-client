@@ -1,11 +1,12 @@
 <template>
   <section class="user-details">
-    <img src="https://fearlesskittyrescue.org/wp-content/uploads/2017/08/cat-1209320_1920.jpg" alt="cover" class="cover">
+    <img v-if="user.cover" :src="user.cover" alt="cover" class="cover">
+    <div v-else class="cover_solid"></div>
     <div class="user">
-      <img src="http://img02.deviantart.net/f5c1/i/2012/290/a/b/adorable_kitty_by_bili911-d5i3bew.jpg" alt="user avatar" class="user__avatar">
+      <img :src="user.avatar" alt="user avatar" class="user__avatar">
       <div class="user__info">
-        <h3 class="user__info__name">Eric Kaiser</h3>
-        <p class="user__info__username">@erickaiser</p>
+        <h3 class="user__info__name">{{ user.firstName }} {{ user.lastName }}</h3>
+        <p class="user__info__username">@{{ user.username }}</p>
       </div>
     </div>
     <div class="stats">
@@ -50,6 +51,14 @@ export default {
   margin: 0;
   padding: 0;
   object-fit: cover;
+}
+
+.cover_solid {
+  width: 300px;
+  height: 100px;
+  background-color: #4caca4;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .user {

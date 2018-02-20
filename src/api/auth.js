@@ -26,6 +26,7 @@ export default {
             firstName
             lastName
             avatar
+            cover
           }
         }
       `,
@@ -49,6 +50,7 @@ export default {
               firstName
               lastName
               avatar
+              cover
             }
             token
           }
