@@ -1,5 +1,5 @@
 <template>
-  <button @click="action" class="button" :class="classes" :type="type">
+  <button @click="action" class="button" :class="classes" :type="type" :title="text">
     <i v-show="loading" class="fas fa-spinner" :class="{ 'loading': loading }"></i>
     {{ text }}
   </button>
@@ -17,6 +17,10 @@ export default {
       type: String,
       default: 'button',
     },
+    size: {
+      type: String,
+      default: 'medium',
+    },
     text: {
       type: String,
       default: 'button',
@@ -33,6 +37,7 @@ export default {
     classes() {
       return {
         [this.role]: true,
+        [this.size]: true,
       };
     },
   },
@@ -42,12 +47,23 @@ export default {
 <style scoped>
 .button {
   min-width: 150px;
-  padding: 20px;
   border-radius: 50px;
   border: none;
   font-family: 'Raleway', sans-serif;
   font-weight: 700;
   cursor: pointer;
+}
+
+.button.large {
+  padding: 20px;
+}
+
+.button.medium {
+  padding: 10px;
+}
+
+.button.small {
+  padding: 5px;
 }
 
 .button.primary {

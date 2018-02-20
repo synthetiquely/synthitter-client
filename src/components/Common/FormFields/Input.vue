@@ -64,6 +64,7 @@ export default {
 }
 .form__field__input:focus {
   color: #fff;
+  outline-color: #4caca4;
 }
 
 .has-error {
