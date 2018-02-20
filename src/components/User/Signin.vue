@@ -3,7 +3,7 @@
     <TextInput type="email" name="email" label="Email" :value="email" @input="onInput" placeholder="Enter your email" :error="errors.email" />
     <TextInput type="password" name="password" label="Password" :value="password" @input="onInput" placeholder="Enter your password" :error="errors.password" />
     <div class="form__field">
-      <Button type="submit" role="primary" text="Sign in" :loading="isLoading" />
+      <Button type="submit" role="primary" size="large" text="Sign in" :loading="isLoading" />
     </div>
   </form>
 </template>

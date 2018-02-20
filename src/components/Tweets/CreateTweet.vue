@@ -11,6 +11,7 @@
 import Avatar from '../Common/Avatar.vue';
 
 export default {
+  name: 'CreateTweet',
   components: {
     Avatar,
   },
@@ -20,18 +21,20 @@ export default {
 
 <style scoped>
 .create-tweet-form {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 10px;
-  background-color: #f3fcfe;
+  background-color: #cbdce0;
   border-bottom: 1px solid #ccc;
 }
 
 .create-tweet-form__input {
-  width: 60%;
+  width: 80%;
   margin: 0 10px;
-  padding: 20px;
+  padding: 10px;
   color: #f3fcfe;
   border-radius: 5px;
   border: none;
@@ -42,9 +45,9 @@ export default {
   outline-color: #4caca4;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 768px) {
   .create-tweet-form__input {
-    max-width: 60%;
+    max-width: 80%;
     width: auto;
   }
 }

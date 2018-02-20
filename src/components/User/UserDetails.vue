@@ -8,13 +8,29 @@
         <p class="user__info__username">@erickaiser</p>
       </div>
     </div>
+    <div class="stats">
+      <div class="stats__item">
+        <span class="stats__item__title">Tweets</span>
+        <span class="stats__item__number">7</span>
+      </div>
+      <div class="stats__item">
+        <span class="stats__item__title">Following</span>
+        <span class="stats__item__number">52</span>
+      </div>
+      <div class="stats__item">
+        <span class="stats__item__title">Followers</span>
+        <span class="stats__item__number">6</span>
+      </div>
+    </div>
   </section>
 </template>
 
 <style scoped>
 .user-details {
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
   width: 300px;
-  background-color: #e4e1dd;
+  background-color: #f3fcfe;
 }
 .cover {
   width: 300px;
@@ -68,5 +84,37 @@
 .user__avatar:hover {
   border-color: #4caca4;
   cursor: pointer;
+}
+
+.stats {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.stats__item {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.stats__item__title,
+.stats__item__number {
+  font-weight: 700;
+}
+
+.stats__item__title {
+  font-family: 'Segoe UI', 'Arial', sans-serif;
+  font-size: 14px;
+  color: #a1a0a0;
+}
+
+.stats__item__number {
+  padding-top: 5px;
+  font-family: 'Segoe UI', 'Arial', sans-serif;
+  font-size: 16px;
+  color: #4caca4;
 }
 </style>

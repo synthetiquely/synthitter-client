@@ -6,6 +6,9 @@
 export default {
   name: 'Avatar',
   props: {
+    className: {
+      type: String,
+    },
     src: {
       type: String,
       default:
@@ -19,6 +22,7 @@ export default {
   computed: {
     classes() {
       return {
+        [this.className]: true,
         [`size-${this.size}`]: true,
       };
     },
