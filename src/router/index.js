@@ -4,6 +4,8 @@ import Home from '../components/Home.vue';
 import Signup from '../components/User/Signup.vue';
 import Signin from '../components/User/Signin.vue';
 
+import AuthGuard from './authGuard';
+
 Vue.use(VueRouter);
 
 export default new VueRouter({
@@ -12,11 +14,13 @@ export default new VueRouter({
       path: '/',
       name: 'Main',
       component: Home,
+      beforeEnter: AuthGuard,
     },
     {
       path: '/home',
       name: 'Home',
       component: Home,
+      beforeEnter: AuthGuard,
     },
     {
       path: '/user/signup',

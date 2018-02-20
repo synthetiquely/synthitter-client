@@ -101,7 +101,6 @@ export default {
   font-family: 'Segoe UI', 'Arial', sans-serif;
   font-size: 16px;
   font-weight: 400;
-  line-height: 20px;
   text-align: justify;
   color: #14171a;
 }

@@ -35,7 +35,7 @@ export default {
   width: 80%;
   margin: 0 10px;
   padding: 10px;
-  color: #f3fcfe;
+  color: #a1a0a0;
   border-radius: 5px;
   border: none;
 }
@@ -45,7 +45,12 @@ export default {
   outline-color: #4caca4;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 375px) {
+  .create-tweet-form {
+    grid-column: 1 / -1;
+    grid-row: 2 / 3;
+  }
+
   .create-tweet-form__input {
     max-width: 80%;
     width: auto;

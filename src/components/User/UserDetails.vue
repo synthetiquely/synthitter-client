@@ -25,6 +25,17 @@
   </section>
 </template>
 
+<script>
+export default {
+  computed: {
+    user() {
+      return this.$store.getters.user;
+    },
+  },
+};
+</script>
+
+
 <style scoped>
 .user-details {
   grid-column: 1 / 2;
@@ -32,6 +43,7 @@
   width: 300px;
   background-color: #f3fcfe;
 }
+
 .cover {
   width: 300px;
   height: 100px;
@@ -116,5 +128,12 @@
   font-family: 'Segoe UI', 'Arial', sans-serif;
   font-size: 16px;
   color: #4caca4;
+}
+
+@media screen and (max-width: 375px) {
+  .user-details {
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+  }
 }
 </style>

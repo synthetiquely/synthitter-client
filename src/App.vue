@@ -56,7 +56,7 @@ body {
   margin-bottom: 10px;
   padding: 0 10%;
   background-color: #383843;
-  color: #f7f5f5;
+  color: #a1a0a0;
 }
 
 @media screen and (max-width: 1024px) {
