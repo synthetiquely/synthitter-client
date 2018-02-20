@@ -72,8 +72,13 @@ export default {
 
 .button.default {
   background-color: #fff;
-  color: #7b8590;
+  color: #4caca4;
   border: 1px solid #4caca4;
+}
+
+button.default:hover {
+  background-color: #4caca4;
+  color: #fff;
 }
 
 .loading {

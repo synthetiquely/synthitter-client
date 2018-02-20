@@ -37,12 +37,12 @@ body {
 
 .app {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 60px auto 60px;
   grid-template-areas:
-    'h h h h h h h h h h h h'
-    'c c c c c c c c c c c c'
-    'f f f f f f f f f f f f';
+    'h h h'
+    'c c c'
+    'f f f';
 }
 
 .app__container {
@@ -51,5 +51,11 @@ body {
   padding: 0 20%;
   background-color: #383843;
   color: #f7f5f5;
+}
+
+@media screen and (max-width: 1024px) {
+  .app__container {
+    padding: 0 10px;
+  }
 }
 </style>
