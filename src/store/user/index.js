@@ -1,4 +1,5 @@
-import api from '../../api/auth';
+import authApi from '../../api/auth';
+import userApi from '../../api/user';
 import { setTokenToLS } from '../../utils/jwt';
 
 export default {
@@ -14,13 +15,19 @@ export default {
     setUser(state, payload) {
       state.user = payload;
     },
+    updateUser(state, payload) {
+      state.user = {
+        ...state.user,
+        ...payload,
+      };
+    },
   },
   actions: {
     async signup({ commit }, payload) {
       commit('setLoading', true);
       commit('setError', null);
       try {
-        await api.signup(payload);
+        await authApi.signup(payload);
         commit('setLoading', false);
       } catch (error) {
         commit('setLoading', false);
@@ -31,7 +38,7 @@ export default {
       commit('setLoading', true);
       commit('setError', null);
       try {
-        const response = await api.signin(payload);
+        const response = await authApi.signin(payload);
         setTokenToLS(response.data.signin.token);
         commit('setUser', response.data.signin.user);
         commit('setLoading', false);
@@ -42,6 +49,20 @@ export default {
     },
     signout({ commit }) {
       commit('setUser', null);
+    },
+    async uploadUserAvatar({ commit }, payload) {
+      commit('setLoading', true);
+      commit('setError', null);
+      try {
+        const response = await userApi.uploadAvatar(payload);
+        commit('updateUser', {
+          avatar: response.data,
+        });
+        commit('setLoading', false);
+      } catch (error) {
+        commit('setLoading', false);
+        commit('setError', error.message);
+      }
     },
   },
 };
